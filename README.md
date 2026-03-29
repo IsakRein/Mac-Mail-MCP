@@ -18,11 +18,29 @@ Works with any email account configured in Mail.app (Gmail, Outlook/Exchange, iC
 ## Setup
 
 ```bash
+cd /path/to/mac-mail-mcp
 npm install
 npm run build
 ```
 
-Add to your MCP config (e.g. `~/.claude.json` or `.mcp.json` — see [`.mcp.json.example`](.mcp.json.example)):
+### Global (all Claude Code sessions)
+
+Add to `~/.claude.json`:
+
+```json
+{
+  "mcpServers": {
+    "mac-mail": {
+      "command": "node",
+      "args": ["/path/to/mac-mail-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+### Project-only
+
+Add a `.mcp.json` in your project root:
 
 ```json
 {
